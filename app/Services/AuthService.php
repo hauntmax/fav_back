@@ -23,7 +23,10 @@ class AuthService
 
     public function login(UserDto $dto): array
     {
-        $token = auth()->attempt([$dto->email, $dto->password]);
+        $token = auth()->attempt([
+            'email' => $dto->email,
+            'password' => $dto->password
+        ]);
 
         if (!$token) {
             return [

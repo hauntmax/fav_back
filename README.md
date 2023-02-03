@@ -2,8 +2,8 @@
 <h2>Необходимо установить docker и docker-compose</h2>
 
 - <h3>Проверка версий </h2>
-- docker -v
-- doсker-compose -v
+- <code>docker -v</code>
+- <code>doсker-compose -v</code>
 
 - <h3>Данный проект был собран используя следующие версии</h3>
 - <code>Docker version 20.10.23, build 7155243</code>
@@ -18,3 +18,4 @@
 - <code>docker-compose exec app php artisan key:generate</code>
 - <code>docker-compose exec app composer install</code>
 - <code>docker-compose exec app php artisan migrate</code>
+- <code>docker-compose exec app php artisan jwt:secret</code>
