@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Abstract\Authorable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +17,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property Carbon updated_at
  * @property Carbon deleted_at
  */
-class Category extends Model
+class Category extends Model implements Authorable
 {
     use HasFactory;
 
@@ -37,5 +38,10 @@ class Category extends Model
             'category_id',
             'product_id'
         );
+    }
+
+    public function getAuthorIdentifier(): int
+    {
+        return $this->user_id;
     }
 }

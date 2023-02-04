@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource
@@ -11,8 +12,8 @@ class UserResource extends JsonResource
         return [
             'name' => $this->resource->name,
             'email' => $this->resource->email,
-            'created_at' => $this->resource->created_at,
-            'updated_at' => $this->resource->updated_at,
+            'created_at' => $this->resource->created_at ? Carbon::parse($this->resource->created_at)->toDateTimeString() : null,
+            'updated_at' => $this->resource->updated_at ? Carbon::parse($this->resource->updated_at)->toDateTimeString() : null,
         ];
     }
 }
