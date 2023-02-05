@@ -11,10 +11,12 @@ class CheckAuthor
 {
     public function handle(Request $request, Closure $next)
     {
-        /** @var Authorable $category */
-        $category = $request->category ;
-        if ($category->getAuthorIdentifier() !== $request->user()?->getAuthIdentifier()) {
-            abort(Response::HTTP_FORBIDDEN);
+        foreach ($request->route()->parameters as $parameter) {
+            if ($parameter instanceof Authorable) {
+                if ($parameter->getAuthorIdentifier() !== $request->user()?->getAuthIdentifier()) {
+                    abort(Response::HTTP_FORBIDDEN);
+                }
+            }
         }
 
         return $next($request);
