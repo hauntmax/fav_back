@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Middleware\CheckAuthor;
 use Illuminate\Support\Facades\Route;
 
@@ -36,4 +37,17 @@ Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
              Route::delete('', [CategoryController::class, 'destroy'])->name('destroy');
          });
      });
+});
+
+Route::group(['prefix' => 'products', 'as' => 'products.'], function () {
+    Route::get('', [ProductController::class, 'index'])->name('index');
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::get('my', [ProductController::class, 'byAuthor'])->name('my');
+        Route::post('', [ProductController::class, 'store'])->name('store');
+        Route::group(['prefix' => '{product}', 'middleware' => [CheckAuthor::class]], function () {
+            Route::get('', [ProductController::class, 'show'])->name('show');
+            Route::put('', [ProductController::class, 'update'])->name('update');
+            Route::delete('', [ProductController::class, 'destroy'])->name('destroy');
+        });
+    });
 });

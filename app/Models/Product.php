@@ -2,11 +2,25 @@
 
 namespace App\Models;
 
+use App\Abstract\Authorable;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Collection;
 
-class Product extends Model
+/**
+ * @property int product_id
+ * @property int user_id
+ * @property string name
+ * @property string description
+ * @property float price
+ * @property Collection categories
+ * @property Carbon created_at
+ * @property Carbon updated_at
+ * @property Carbon deleted_at
+ */
+class Product extends Model implements Authorable
 {
     use HasFactory;
 
@@ -27,5 +41,10 @@ class Product extends Model
             'product_id',
             'category_id'
         );
+    }
+
+    public function getAuthorIdentifier(): int
+    {
+        return $this->user_id;
     }
 }
