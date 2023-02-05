@@ -36,7 +36,7 @@ class ProductController extends Controller
     public function byAuthor(ProductIndexRequest $request): AnonymousResourceCollection
     {
         $indexRequestDto = IndexRequestDto::fromRequest($request);
-        $products = $this->productService->getPaginated($indexRequestDto, $request->user()?->getAuthIdentifier());
+        $products = $this->productService->getProductsByUser($request->user()?->getAuthIdentifier(), $indexRequestDto);
 
         return ProductResource::collection($products);
     }

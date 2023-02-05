@@ -50,6 +50,13 @@ class ProductService
 
     public function getProductsByCategory(Category $category, IndexRequestDto $indexRequestDto): LengthAwarePaginator
     {
-        return $category->products()->paginate(perPage: $indexRequestDto->perPage, page: $indexRequestDto->page);
+        return $category->products()
+            ->paginate(perPage: $indexRequestDto->perPage, page: $indexRequestDto->page);
+    }
+
+    public function getProductsByUser(int $userId, IndexRequestDto $indexRequestDto): LengthAwarePaginator
+    {
+        return Product::query()->where('user_id', $userId)
+            ->paginate(perPage: $indexRequestDto->perPage, page: $indexRequestDto->page);
     }
 }
