@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description')->nullable();
             $table->integer('status');
-            $table->decimal('price')->nullable();
+            $table->float('price')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
