@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DTO\CategoryDto;
+use App\DTO\IndexRequestDto;
 use App\Http\Requests\Category\CategoryStoreRequest;
 use App\Http\Requests\Category\CategoryIndexRequest;
 use App\Http\Resources\CategoryResource;
@@ -23,15 +24,16 @@ class CategoryController extends Controller
 
     public function index(CategoryIndexRequest $request): AnonymousResourceCollection
     {
-        $categories = $this->categoryService->getPaginatedCategories($request->validated());
+        $indexRequestDto = IndexRequestDto::fromRequest($request);
+        $categories = $this->categoryService->getPaginated($indexRequestDto);
 
         return CategoryResource::collection($categories);
     }
 
     public function byAuthor(CategoryIndexRequest $request): AnonymousResourceCollection
     {
-        $userId = $request->user()?->getAuthIdentifier();
-        $categories = $this->categoryService->getPaginatedCategories($request->validated(), $userId);
+        $indexRequestDto = IndexRequestDto::fromRequest($request);
+        $categories = $this->categoryService->getCategoriesByAuthor($request->user()?->getAuthIdentifier(), $indexRequestDto);
 
         return CategoryResource::collection($categories);
     }
@@ -44,7 +46,6 @@ class CategoryController extends Controller
     public function store(CategoryStoreRequest $request): JsonResource
     {
         $categoryDto = CategoryDto::fromRequest($request);
-
         $category = $this->categoryService->create($categoryDto);
 
         return CategoryResource::make($category);
@@ -52,9 +53,7 @@ class CategoryController extends Controller
 
     public function update(Category $category, CategoryStoreRequest $request): JsonResource
     {
-        $categoryDto = CategoryDto::fromRequest($request);
-
-        $category = $this->categoryService->update($category, $categoryDto);
+        $category = $this->categoryService->update($category, $request->validated());
 
         return CategoryResource::make($category);
     }

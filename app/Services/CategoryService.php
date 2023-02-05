@@ -2,29 +2,20 @@
 
 namespace App\Services;
 
+use App\Common\CrudTrait;
 use App\DTO\CategoryDto;
+use App\DTO\IndexRequestDto;
 use App\Models\Category;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Arr;
+use Illuminate\Database\Eloquent\Builder;
 
 class CategoryService
 {
-    public function getPaginatedCategories(array $paginateData = [], int $userId = null): LengthAwarePaginator
+    use CrudTrait;
+
+    public function getBuilder(): Builder
     {
-        $categoryBuilder = Category::query();
-
-        if (!is_null($userId)) {
-            $categoryBuilder->where('user_id', $userId);
-        }
-
-        if (!empty($paginateData)) {
-            $page = Arr::get($paginateData, 'page');
-            $perPage = Arr::get($paginateData, 'per-page');
-
-            return $categoryBuilder->paginate(perPage: $perPage, page: $page);
-        }
-
-        return $categoryBuilder->paginate();
+        return Category::query();
     }
 
     public function create(CategoryDto $dto): Category
@@ -39,13 +30,16 @@ class CategoryService
         return $category;
     }
 
-    public function update(Category $category, CategoryDto $dto): Category
+    public function update(Category $category, array $attributes): Category
     {
-        $category->update([
-            'name' => $dto->name,
-            'description' => $dto->description,
-        ]);
+        $category->update($attributes);
 
         return $category;
+    }
+
+    public function getCategoriesByAuthor(int $userId, IndexRequestDto $indexRequestDto): LengthAwarePaginator
+    {
+        return Category::query()->where('user_id', $userId)
+            ->paginate(perPage: $indexRequestDto->perPage, page: $indexRequestDto->page);
     }
 }
