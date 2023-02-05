@@ -10,13 +10,9 @@ trait CrudTrait
 {
     abstract public function getBuilder(): Builder;
 
-    public function getPaginated(IndexRequestDto $indexRequestDto, ?int $authorId = null): LengthAwarePaginator
+    public function getPaginated(IndexRequestDto $indexRequestDto): LengthAwarePaginator
     {
         $builder = $this->getBuilder();
-
-        if (!is_null($authorId)) {
-            $builder->where('user_id', $authorId);
-        }
 
         $page = $indexRequestDto->page ?? null;
         $perPage = $indexRequestDto->perPage ?? null;
