@@ -19,7 +19,6 @@ class ProductResource extends JsonResource
             'name' => $this->resource->name,
             'description' => $this->resource->description,
             'price' => $this->resource->price,
-            'categories' => CategoryResource::collection($this->resource->categories),
             'created_at' => $this->resource->created_at ? Carbon::parse($this->resource->created_at)->toDateTimeString() : null,
             'updated_at' => $this->resource->updated_at ? Carbon::parse($this->resource->updated_at)->toDateTimeString() : null,
             'deleted_at' => $this->resource->deleted_at ? Carbon::parse($this->resource->deleted_at)->toDateTimeString() : null,

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\AttachRequestDto;
 use App\DTO\IndexRequestDto;
 use App\DTO\ProductDto;
+use App\Http\Requests\Product\AttachCategoriesRequest;
 use App\Http\Requests\Product\ProductIndexRequest;
 use App\Http\Requests\Product\ProductStoreRequest;
 use App\Http\Requests\Product\ProductUpdateRequest;
@@ -57,9 +59,7 @@ class ProductController extends Controller
 
     public function update(Product $product, ProductUpdateRequest $request): JsonResource
     {
-        $productDto = ProductDto::fromRequest($request);
-
-        $product = $this->productService->update($product, $productDto);
+        $product = $this->productService->update($product, $request->validated());
 
         return ProductResource::make($product);
     }
@@ -69,5 +69,14 @@ class ProductController extends Controller
         $product->delete();
 
         return response()->json(status: Response::HTTP_NO_CONTENT);
+    }
+
+    public function attach(Product $product, AttachCategoriesRequest $request): JsonResponse
+    {
+        $categoryIds = $request->get('category_ids');
+
+        return response()->json([
+            'data' => $product->categories()->syncWithoutDetaching($categoryIds),
+        ]);
     }
 }

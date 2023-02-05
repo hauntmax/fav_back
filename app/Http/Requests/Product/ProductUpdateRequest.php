@@ -12,6 +12,7 @@ class ProductUpdateRequest extends FormRequest
             'name' => ['nullable', 'string', 'max:255'],
             'description' => ['nullable', 'string',],
             'price' => ['nullable', 'numeric'],
+            'category_ids' => ['nullable', 'array', 'exists:categories,category_id'],
         ];
     }
 }

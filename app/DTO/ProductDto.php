@@ -9,8 +9,9 @@ class ProductDto extends DataTransferObject
 {
     public ?int $userId;
     public string $name;
-    public string $description;
-    public float $price;
+    public ?string $description;
+    public ?float $price;
+    public ?array $categoryIds;
 
     public static function fromRequest(Request $request): ProductDto
     {
@@ -19,6 +20,7 @@ class ProductDto extends DataTransferObject
             'name' => $request->get('name'),
             'description' => $request->get('description'),
             'price' => $request->get('price'),
+            'categoryIds' => $request->get('category_ids'),
         ]);
     }
 }
