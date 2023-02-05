@@ -29,12 +29,14 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'], function  () {
 Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
      Route::get('', [CategoryController::class, 'index'])->name('index');
      Route::group(['middleware' => 'auth:api'], function () {
-         Route::get('my', [CategoryController::class, 'byUser'])->name('my');
+         Route::get('my', [CategoryController::class, 'byAuthor'])->name('my');
          Route::post('', [CategoryController::class, 'store'])->name('store');
-         Route::group(['prefix' => '{category}', 'middleware' => [CheckAuthor::class]], function () {
+         Route::group(['prefix' => '{category}'], function () {
              Route::get('', [CategoryController::class, 'show'])->name('show');
-             Route::put('', [CategoryController::class, 'update'])->name('update');
-             Route::delete('', [CategoryController::class, 'destroy'])->name('destroy');
+             Route::group(['middleware' => [CheckAuthor::class]], function () {
+                 Route::put('', [CategoryController::class, 'update'])->name('update');
+                 Route::delete('', [CategoryController::class, 'destroy'])->name('destroy');
+             });
          });
      });
 });
@@ -44,10 +46,12 @@ Route::group(['prefix' => 'products', 'as' => 'products.'], function () {
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('my', [ProductController::class, 'byAuthor'])->name('my');
         Route::post('', [ProductController::class, 'store'])->name('store');
-        Route::group(['prefix' => '{product}', 'middleware' => [CheckAuthor::class]], function () {
+        Route::group(['prefix' => '{product}'], function () {
             Route::get('', [ProductController::class, 'show'])->name('show');
-            Route::put('', [ProductController::class, 'update'])->name('update');
-            Route::delete('', [ProductController::class, 'destroy'])->name('destroy');
+            Route::group(['middleware' => [CheckAuthor::class]], function () {
+                Route::put('', [ProductController::class, 'update'])->name('update');
+                Route::delete('', [ProductController::class, 'destroy'])->name('destroy');
+            });
         });
     });
 });

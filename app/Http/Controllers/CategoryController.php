@@ -28,7 +28,7 @@ class CategoryController extends Controller
         return CategoryResource::collection($categories);
     }
 
-    public function byUser(CategoryIndexRequest $request): AnonymousResourceCollection
+    public function byAuthor(CategoryIndexRequest $request): AnonymousResourceCollection
     {
         $userId = $request->user()?->getAuthIdentifier();
         $categories = $this->categoryService->getPaginatedCategories($request->validated(), $userId);
