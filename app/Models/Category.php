@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Collection;
 
 /**
  * @property int category_id
@@ -16,6 +17,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property Carbon created_at
  * @property Carbon updated_at
  * @property Carbon deleted_at
+ *
+ * @property Collection products
  */
 class Category extends Model implements Authorable
 {

@@ -3,8 +3,11 @@
 namespace App\Services;
 
 use App\Common\CrudTrait;
+use App\DTO\IndexRequestDto;
 use App\DTO\ProductDto;
+use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 
@@ -43,5 +46,10 @@ class ProductService
         }
 
         return $product;
+    }
+
+    public function getProductsByCategory(Category $category, IndexRequestDto $indexRequestDto): LengthAwarePaginator
+    {
+        return $category->products()->paginate(perPage: $indexRequestDto->perPage, page: $indexRequestDto->page);
     }
 }

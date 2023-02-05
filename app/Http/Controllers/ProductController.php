@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\DTO\AttachRequestDto;
 use App\DTO\IndexRequestDto;
 use App\DTO\ProductDto;
 use App\Http\Requests\Product\AttachCategoriesRequest;
@@ -10,6 +9,7 @@ use App\Http\Requests\Product\ProductIndexRequest;
 use App\Http\Requests\Product\ProductStoreRequest;
 use App\Http\Requests\Product\ProductUpdateRequest;
 use App\Http\Resources\ProductResource;
+use App\Models\Category;
 use App\Models\Product;
 use App\Services\ProductService;
 use Illuminate\Http\JsonResponse;
@@ -28,7 +28,6 @@ class ProductController extends Controller
     public function index(ProductIndexRequest $request): AnonymousResourceCollection
     {
         $indexRequestDto = IndexRequestDto::fromRequest($request);
-
         $products = $this->productService->getPaginated($indexRequestDto);
 
         return ProductResource::collection($products);
@@ -37,8 +36,15 @@ class ProductController extends Controller
     public function byAuthor(ProductIndexRequest $request): AnonymousResourceCollection
     {
         $indexRequestDto = IndexRequestDto::fromRequest($request);
-
         $products = $this->productService->getPaginated($indexRequestDto, $request->user()?->getAuthIdentifier());
+
+        return ProductResource::collection($products);
+    }
+
+    public function byCategory(Category $category, ProductIndexRequest $request): AnonymousResourceCollection
+    {
+        $indexRequestDto = IndexRequestDto::fromRequest($request);
+        $products = $this->productService->getProductsByCategory($category, $indexRequestDto);
 
         return ProductResource::collection($products);
     }
@@ -51,7 +57,6 @@ class ProductController extends Controller
     public function store(ProductStoreRequest $request): JsonResource
     {
         $productDto = ProductDto::fromRequest($request);
-
         $product = $this->productService->create($productDto);
 
         return ProductResource::make($product);

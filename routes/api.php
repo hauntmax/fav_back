@@ -33,7 +33,7 @@ Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
          Route::post('', [CategoryController::class, 'store'])->name('store');
          Route::group(['prefix' => '{category}'], function () {
              Route::get('', [CategoryController::class, 'show'])->name('show');
-             Route::get('products', [CategoryController::class, 'byProducts'])->name('show');
+             Route::get('products', [ProductController::class, 'byCategory'])->name('show');
              Route::group(['middleware' => [CheckAuthor::class]], function () {
                  Route::put('', [CategoryController::class, 'update'])->name('update');
                  Route::delete('', [CategoryController::class, 'destroy'])->name('destroy');
