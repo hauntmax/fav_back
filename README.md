@@ -16,7 +16,7 @@
 - <code>docker-compose exec app php artisan key:generate</code><br>
 - <code>docker-compose exec app composer install</code><br>
 - <code>docker-compose exec app php artisan migrate</code><br>
-- <code>docker-compose exec app php artisan jwt:secret</code><br>
+- <code>docker-compose exec app php artisan jwt:secret</code><br><br>
 
 После выполнения команд проект будет доступен локально http://zorra.test/
 
@@ -601,12 +601,3 @@
         <pre><i>Response statuses: 200, 422, 404</i></pre>
     </details>
 </details>
-
-[//]: # (- <code></code>)
-[//]: # (- <code></code>)
-[//]: # (- <code></code>)
-[//]: # (- <code></code>)
-[//]: # (- <code></code>)
-[//]: # (- <code></code>)
-[//]: # (- <code></code>)
-[//]: # (- <code></code>)
