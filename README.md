@@ -1,7 +1,7 @@
 # zorra_test
 <h2>Необходимо установить docker и docker-compose</h2>
 - <h3>Проверка версий </h2>
-```sh
+```bash
   docker -v
   doсker-compose -v
 ```
@@ -11,28 +11,28 @@
 - <code>docker-compose version 1.29.2, build 5becea4c</code>
 
 <h2>После установки docker и docker-compose нужно выполнить команды из директории с проектом</h2>
-```sh
+```bash
 cp .env.example .env
 ```
-```sh
+```bash
 docker-compose build --build-arg USER_ID="$(id -u)" --build-arg USER="$(whoami)"
 ```
-```sh
+```bash
 docker-compose up -d
 ```
-```sh
+```bash
 sudo -- sh -c -e "echo 127.0.0.1 zorra.test >> /etc/hosts"
 ```
-```sh
+```bash
 docker-compose exec app php artisan key:generate
 ```
-```sh
+```bash
 docker-compose exec app composer install
 ```
-```sh
+```bash
 docker-compose exec app php artisan migrate
 ```
-```sh
+```bash
 docker-compose exec app php artisan jwt:secret
 ```
 
