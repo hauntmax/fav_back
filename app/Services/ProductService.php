@@ -59,4 +59,10 @@ class ProductService
         return Product::query()->where('user_id', $userId)
             ->paginate(perPage: $indexRequestDto->perPage, page: $indexRequestDto->page);
     }
+
+    public function delete(Product $product): void
+    {
+        $product->categories()->detach();
+        $product->delete();
+    }
 }

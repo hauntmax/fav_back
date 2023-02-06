@@ -42,4 +42,10 @@ class CategoryService
         return Category::query()->where('user_id', $userId)
             ->paginate(perPage: $indexRequestDto->perPage, page: $indexRequestDto->page);
     }
+
+    public function delete(Category $category): void
+    {
+        $category->products()->detach();
+        $category->delete();
+    }
 }

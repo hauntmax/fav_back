@@ -71,7 +71,7 @@ class ProductController extends Controller
 
     public function destroy(Product $product): JsonResponse
     {
-        $product->delete();
+        $this->productService->delete($product);
 
         return response()->json(status: Response::HTTP_NO_CONTENT);
     }
