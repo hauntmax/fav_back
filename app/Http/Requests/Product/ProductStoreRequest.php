@@ -11,7 +11,7 @@ class ProductStoreRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string',],
-            'price' => ['nullable', 'numeric'],
+            'price' => ['nullable', 'decimal:0,2'],
             'category_ids' => ['nullable', 'array', 'exists:categories,category_id'],
         ];
     }

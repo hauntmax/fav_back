@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('description')->nullable();
-            $table->float('price')->nullable();
+            $table->decimal('price')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
