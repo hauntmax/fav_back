@@ -1,22 +1,22 @@
 # Zorra test
 <h2>Необходимо установить docker и docker-compose</h2>
-- <h3>Проверка версий </h2>
-- <code>docker -v</code>
-- <code>doсker-compose -v</code>
+<h3>Проверка версий </h2>
+- <code>docker -v</code><br>
+- <code>doсker-compose -v</code><br>
 
-- <h3>Данный проект был собран, используя следующие версии</h3>
-- <code>Docker version 20.10.23, build 7155243</code>
-- <code>docker-compose version 1.29.2, build 5becea4c</code>
+<h3>Данный проект был собран, используя следующие версии</h3>
+- <code>Docker version 20.10.23, build 7155243</code><br>
+- <code>docker-compose version 1.29.2, build 5becea4c</code><br>
 
 <h2>После установки docker и docker-compose нужно выполнить команды из директории с проектом</h2>
-- <code>cp .env.example .env</code>
-- <code>docker-compose build --build-arg USER_ID="$(id -u)" --build-arg USER="$(whoami)"</code>
-- <code>docker-compose up -d</code>
-- <code>sudo -- sh -c -e "echo 127.0.0.1 zorra.test >> /etc/hosts"</code>
-- <code>docker-compose exec app php artisan key:generate</code>
-- <code>docker-compose exec app composer install</code>
-- <code>docker-compose exec app php artisan migrate</code>
-- <code>docker-compose exec app php artisan jwt:secret</code>
+- <code>cp .env.example .env</code><br>
+- <code>docker-compose build --build-arg USER_ID="$(id -u)" --build-arg USER="$(whoami)"</code><br>
+- <code>docker-compose up -d</code><br>
+- <code>sudo -- sh -c -e "echo 127.0.0.1 zorra.test >> /etc/hosts"</code><br>
+- <code>docker-compose exec app php artisan key:generate</code><br>
+- <code>docker-compose exec app composer install</code><br>
+- <code>docker-compose exec app php artisan migrate</code><br>
+- <code>docker-compose exec app php artisan jwt:secret</code><br>
 
 После выполнения команд проект будет доступен локально http://zorra.test/
 
