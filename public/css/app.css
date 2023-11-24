@@ -1,16 +1,21 @@
+body {
+    margin : 0 auto
+}
+
+
+/* Header */
 header {
     margin : 0 auto;
-    background-color: dimgray;
+    background-color: rgb(31, 31, 43);
     display: flex;
     align-items: center;
 }
 
 .header-button {
-    width : 120px;
+    width : 180px;
     height : 70px;
     display : inline-flex;
     align-items: center;
-    border: solid 1px salmon
 }
 
 .header-text {
@@ -21,5 +26,31 @@ header {
 }
 
 .header-menu-group {
-    margin : 0 auto
+    margin-left: 15%
+}
+
+.header-menu-profile {
+    display: flex;
+    margin: 0 auto
+}
+
+
+/* Sidebar */
+.sidebar {
+    width : 15%;
+    background-color: rgb(67, 72, 86);
+}
+
+.sidebar-item-group {
+    margin: 0 auto;
+    height: 65px;
+    align-items: center;
+    display: flex;
+}
+
+.sidebar-text {
+    color: white;
+    margin : 0 auto;
+    font-weight: 400;
+    font-size: 24px;
 }

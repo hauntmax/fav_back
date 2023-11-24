@@ -15,6 +15,8 @@
         <div class="header-button">
             <p class="header-text">Calls</p>
         </div>
+    </div>
+    <div class="header-menu-profile">
         <div class="header-button">
             <p class="header-text">Logout</p>
         </div>
