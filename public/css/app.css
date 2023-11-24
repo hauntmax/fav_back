@@ -1,6 +1,6 @@
 header {
     margin : 0 auto;
-    background-color: black;
+    background-color: dimgray;
     display: flex;
     align-items: center;
 }
@@ -10,14 +10,14 @@ header {
     height : 70px;
     display : inline-flex;
     align-items: center;
-    border: solid 5px blue
+    border: solid 1px salmon
 }
 
 .header-text {
     color : white;
     margin : 0 auto;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 24px;
 }
 
 .header-menu-group {
