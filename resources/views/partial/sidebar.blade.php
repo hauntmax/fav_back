@@ -1,20 +1,23 @@
 <div class="sidebar">
     <div class="sidebar-item-group">
-        <p class="sidebar-text">Item 1</p>
+        <p class="sidebar-text">Users</p>
     </div>
     <div class="sidebar-item-group">
-        <p class="sidebar-text">Item 2</p>
+        <p class="sidebar-text">Storage</p>
     </div>
     <div class="sidebar-item-group">
-        <p class="sidebar-text">Item 3</p>
+        <p class="sidebar-text">Services</p>
     </div>
     <div class="sidebar-item-group">
-        <p class="sidebar-text">Item 4</p>
+        <p class="sidebar-text">Messages</p>
     </div>
     <div class="sidebar-item-group">
-        <p class="sidebar-text">Item 5</p>
+        <p class="sidebar-text">Calls</p>
     </div>
     <div class="sidebar-item-group">
-        <p class="sidebar-text">Item 6</p>
+        <p class="sidebar-text">News</p>
+    </div>
+    <div class="sidebar-item-group">
+        <p class="sidebar-text">Updates</p>
     </div>
 </div>
