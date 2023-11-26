@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controller\Api;
 
 use App\DTO\CategoryDto;
 use App\DTO\IndexRequestDto;

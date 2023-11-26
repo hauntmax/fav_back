@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\DTO\UserDto;
 use App\Http\Requests\Auth\LoginRequest;
