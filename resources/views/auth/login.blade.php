@@ -16,10 +16,10 @@
             <input class="login-item-input" type="password" name="password" placeholder="Password">
         </div>
         <div class="login-item">
-            <input class="login-item-checkbox" type="checkbox" name="remember">Remember me
+            <input class="login-item-checkbox" type="checkbox" name="remember"><p class="login-item-text">Remember me</p>
         </div>
         <div class="login-item">
-            <button class="login-item-button-submit" type="submit">Enter</button>
+            <button class="login-item-button-submit" type="submit"><p class="login-item-text">Enter</p></button>
         </div>
     </form>
 </div>

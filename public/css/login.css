@@ -16,8 +16,8 @@ body {
 .login-content-block {
     display: flex;
     position: relative;
-    width: 20%;
-    margin : 20% auto;
+    width: 21%;
+    margin : 17% auto;
     background-color: whitesmoke;
     border-radius: 5%;
 }
@@ -25,7 +25,8 @@ body {
 .login-form-block {
     display: flex;
     position: relative;
-    margin: 0 auto;
+    margin: .9em auto;
+    width : 70%;
     align-items: center;
     flex-direction: column;
 }
@@ -33,18 +34,34 @@ body {
 .login-item {
     display: flex;
     position: relative;
-    margin: 5% auto;
+    margin: .5em auto;
+    width: 100%;
+    align-items: center;
 }
 
 .login-item-input {
+    display: flex;
+    position: relative;
     margin: 0 auto;
+    box-sizing : border-box;
+    width : 100%;
+    height: 35px;
 }
 
 .login-item-checkbox {
+    display: flex;
+    position: relative;
     margin-right: 5%;
+    box-sizing : border-box;
+    width : auto;
+    max-width : 100%;
 }
 
 .login-item-button-submit {
     display: block;
-    margin: 5% auto;
+    box-sizing : border-box;
+    width: 50%;
+    max-width : 100%;
+    height: auto;
+    margin : 0 auto
 }
