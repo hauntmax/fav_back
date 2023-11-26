@@ -46,10 +46,7 @@ header {
 }
 
 .header-item-profile {
-    margin-left: 75%;
     color : white;
-    font-weight: 400;
-    font-size: 24px;
 }
 
 .header-item-text {

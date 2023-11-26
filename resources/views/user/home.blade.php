@@ -12,7 +12,9 @@
     </div>
     <div class="header-menu-group">
         <div class="header-item">
-            <p class="header-item-text">Admin Panel</p>
+            <a class="header-item-text" href="{{route('admin.dashboard')}}">
+                Admin
+            </a>
         </div>
         <div class="header-item">
             <p class="header-item-text">Storage</p>
@@ -32,7 +34,12 @@
     </div>
     <div class="header-menu-profile">
         <div class="header-item-profile">
-            <p class="header-item-text">Logout</p>
+            <p class="header-item-text">{{ isset($user) ? $user->name : 'Unknown' }}</p>
+        </div>
+        <div class="header-item-profile">
+            <a class="header-item-text" href="{{ route('auth.logout') }}">
+                Logout
+            </a>
         </div>
     </div>
 </header>
