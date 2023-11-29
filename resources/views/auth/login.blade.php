@@ -2,7 +2,6 @@
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
-{{-- <link rel="font" href="{{ asset('fonts/Roboto-Regular.ttf') }}"> --}}
 @endpush
 
 @section('content')

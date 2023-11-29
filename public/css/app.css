@@ -16,10 +16,12 @@ header {
 .header-menu-logo {
     width : 33.3%;
     display : inline-flex;
+    cursor: pointer;
 }
 
 .header-menu-group {
     width : 33.3%;
+    height: 100%;
     margin : 0 auto;
     display : inline-flex;
     align-items: center;
@@ -27,6 +29,7 @@ header {
 
 .header-menu-profile {
     width : 33.3%;
+    height: 100%;
     display : inline-flex;
     margin: 0 auto;
     align-items: center;
@@ -35,7 +38,14 @@ header {
 .header-item {
     margin : 0 auto;
     display : inline-flex;
+    position: relative;
     align-items: center;
+    height: 100%;
+    width: 150px
+}
+
+.header-item:hover, .header-item:focus {
+    background-color: #2980B9;
 }
 
 .header-item-logo {
@@ -45,15 +55,58 @@ header {
     font-size: 24px;
 }
 
+/* Кнопка выпадающего списка */
 .header-item-profile {
+    height: 100%;
+    background-color: rgb(17, 17, 41);;
     color : white;
+    display: flex;
+    position: relative;
+    align-items : center;
+    margin-left: 13rem;
+    margin-right: 5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.header-item-profile:hover, .header-item-profile:focus {
+    background-color: #2980B9;
 }
 
 .header-item-text {
+    display: flex;
     color : white;
     margin : 0 auto;
     font-weight: 400;
     font-size: 24px;
+    padding-left: 0;
+    text-decoration: none;
+    align-items: center;
+}
+
+/* Выпадающее содержимое (скрыто по умолчанию) */
+.header-item-dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Ссылки внутри выпадающего списка */
+.header-item-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Изменение цвета выпадающих ссылок при наведении курсора */
+.header-item-dropdown-content a:hover {background-color: #ddd}
+
+.show {
+    display:block;
 }
 
 /* Sidebar */

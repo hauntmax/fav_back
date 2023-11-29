@@ -21,16 +21,14 @@
         </div>
     </div>
     <div class="header-menu-profile">
-        <div class="header-item-profile">
-            <p class="header-item-text">{{ isset($user) ? $user->name : 'Unknown' }}</p>
-        </div>
-        <div class="header-item-profile">
-            <form action="{{ route('auth.logout') }}" method="POST">
-                @csrf
-                <button type="submit" class="header-item-text" href="{{ route('auth.logout') }}">
-                    Logout
-                </button>
-            </form>
+        <button onclick="showHeaderMenuProfile()" class="header-item-profile">
+            <p class="header-item-text">
+                {{ isset($user) ? $user->name : 'Unknown' }}
+            </p>
+        </button>
+        <div id="header-item-dropdown" class="header-item-dropdown-content">
+            <a class="header-item-text" href="">Settings</a>
+            <a class="header-item-text" href="{{ route('auth.logout') }}">Logout</a>
         </div>
     </div>
 </header>
@@ -38,4 +36,7 @@
 @section("content")
 
 
+@push('script')
+    <script src="{{ asset('js/app.js') }}"></script>
+@endpush
 @endsection

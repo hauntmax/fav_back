@@ -21,7 +21,7 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'], function  () {
     Route::post('register', [AuthController::class, 'register'])->name('register');
     Route::post('login', [AuthController::class, 'login'])->name('login');
     Route::group(['middleware' => 'auth:web'], function () {
-        Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+        Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     });
 });
 

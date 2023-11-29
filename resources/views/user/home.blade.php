@@ -33,13 +33,10 @@
         </div>
     </div>
     <div class="header-menu-profile">
-        <div class="header-item-profile">
-            <p class="header-item-text">{{ isset($user) ? $user->name : 'Unknown' }}</p>
-        </div>
-        <div class="header-item-profile">
-            <a class="header-item-text" href="{{ route('auth.logout') }}">
-                Logout
-            </a>
+        <button onclick="showHeaderMenuProfile()" class="header-item-profile">{{ isset($user) ? $user->name : 'Unknown' }}</button>
+        <div id="header-item-dropdown" class="header-item-dropdown-content">
+            <a class="header-item-text" href="">Settings</a>
+            <a class="header-item-text" href="{{ route('auth.logout') }}">Logout</a>
         </div>
     </div>
 </header>
