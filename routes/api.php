@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\v1\TracksExport\TracksExportOperation;
 use App\Http\Middleware\CheckAuthor;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,12 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'], function  () {
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('me', [AuthController::class, 'me'])->name('me');
         Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+    });
+});
+
+Route::group(['prefix' => 'v1'], function () {
+    Route::group([/**'middleware' => 'auth:api'*/], function () {
+        Route::get('/{service}/tracks/export', TracksExportOperation::class);
     });
 });
 
