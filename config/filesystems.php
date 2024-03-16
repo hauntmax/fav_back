@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Service;
+
 return [
 
     /*
@@ -56,6 +58,13 @@ return [
             'throw' => false,
         ],
 
+        Service::YANDEX_SERVICE_NAME => [
+            'driver' => 'local',
+            'root' => storage_path('app/' . Service::YANDEX_SERVICE_NAME),
+            'url' => env('APP_URL') . '/storage/' . Service::YANDEX_SERVICE_NAME,
+            'visibility' => 'public',
+            'throw' => false,
+        ]
     ],
 
     /*
@@ -71,6 +80,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('storage/' . Service::YANDEX_SERVICE_NAME) => storage_path('app/' . Service::YANDEX_SERVICE_NAME),
     ],
 
 ];

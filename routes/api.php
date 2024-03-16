@@ -3,7 +3,8 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProductController;
-use App\Http\Controllers\Api\v1\TracksExport\TracksExportOperation;
+use App\Http\Controllers\Api\v1\Service\Yandex\TracksExportOperation;
+use App\Http\Controllers\Api\v1\Service\Yandex\TracksListOperation;
 use App\Http\Middleware\CheckAuthor;
 use Illuminate\Support\Facades\Route;
 
@@ -28,8 +29,16 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'], function  () {
 });
 
 Route::group(['prefix' => 'v1'], function () {
-    Route::group([/**'middleware' => 'auth:api'*/], function () {
-        Route::get('/{service}/tracks/export', TracksExportOperation::class);
+    Route::group(['middleware' => 'auth:api'], function () {
+
+    });
+    Route::group(['prefix' => '{service}'], function () {
+        Route::group(['prefix' => 'music'], function () {
+            Route::get('export', TracksListOperation::class);
+            Route::post('export', TracksExportOperation::class);
+        });
+
+        Route::get('tracks/export', TracksListOperation::class);
     });
 });
 
