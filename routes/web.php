@@ -31,4 +31,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
 Route::group(['prefix' => '', 'as' => 'user.'], function () {
     Route::get('', [UserHomeController::class, 'home'])->name('home');
+    Route::group(['prefix' => 'services', 'as' => 'services.'], function () {
+        Route::get('', [\App\Http\Controllers\User\YandexServiceController::class, 'list'])->name('list');
+        Route::get('yandex', [\App\Http\Controllers\User\YandexServiceController::class, 'show'])->name('yandex');
+        Route::post('yandex', [\App\Http\Controllers\User\YandexServiceController::class, 'export'])->name('export');
+    });
 });

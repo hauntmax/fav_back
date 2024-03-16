@@ -28,14 +28,14 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'], function  () {
     });
 });
 
-Route::group(['prefix' => 'v1'], function () {
+Route::group(['prefix' => 'v1', 'as' => 'v1.'], function () {
     Route::group(['middleware' => 'auth:api'], function () {
 
     });
-    Route::group(['prefix' => '{service}'], function () {
-        Route::group(['prefix' => 'music'], function () {
-            Route::get('export', TracksListOperation::class);
-            Route::post('export', TracksExportOperation::class);
+    Route::group(['prefix' => '{service}', 'as' => 'service.'], function () {
+        Route::group(['prefix' => 'music', 'as' => 'music.'], function () {
+            Route::get('export', TracksListOperation::class)->name('list');
+            Route::post('export', TracksExportOperation::class)->name('export');
         });
 
         Route::get('tracks/export', TracksListOperation::class);

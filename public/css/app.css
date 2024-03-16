@@ -1,13 +1,13 @@
 body {
     margin : 0 auto;
     font-family: "Roboto", "Arial", sans-serif;
+    background-color: rgb(20, 20, 20);;
 }
-
 
 /* Header */
 header {
     margin : 0 auto;
-    height : 7%;
+    height : 3.5em;
     background-color: rgb(31, 31, 43);
     display: flex;
     align-items: center;
@@ -41,7 +41,8 @@ header {
     position: relative;
     align-items: center;
     height: 100%;
-    width: 150px
+    width: 150px;
+    cursor: pointer;
 }
 
 .header-item:hover, .header-item:focus {
@@ -109,11 +110,21 @@ header {
     display:block;
 }
 
+/* Content */
+.content {
+    display: flex;
+}
+
+.content-text {
+    color: white;
+}
+
 /* Sidebar */
 .sidebar {
     width : 10%;
     height: 100%;
     background-color: rgb(31, 31, 43);
+    display: inline-block;
 }
 
 .sidebar-item-group {
@@ -121,6 +132,11 @@ header {
     height: 65px;
     align-items: center;
     display: flex;
+    cursor: pointer;
+}
+
+.sidebar-item-group:hover, .sidebar-item-group:focus {
+    background-color: #2980B9;
 }
 
 .sidebar-text {
