@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controller\Api;
+namespace App\Http\Controllers\Api;
 
 use App\DTO\CategoryDto;
 use App\DTO\IndexRequestDto;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\CategoryStoreRequest;
 use App\Http\Requests\Category\CategoryIndexRequest;
 use App\Http\Resources\CategoryResource;

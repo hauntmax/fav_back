@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\DTO\IndexRequestDto;
 use App\DTO\ProductDto;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\AttachCategoriesRequest;
 use App\Http\Requests\Product\ProductIndexRequest;
 use App\Http\Requests\Product\ProductStoreRequest;
