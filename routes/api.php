@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CarController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\v1\Service\Yandex\TracksExportOperation;
@@ -72,4 +73,8 @@ Route::group(['prefix' => 'products', 'as' => 'products.'], function () {
             });
         });
     });
+});
+
+Route::group(['prefix' => 'cars', 'as' => 'cars.'], function () {
+    Route::get('', [CarController::class, 'index'])->name('index');
 });
