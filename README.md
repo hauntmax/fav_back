@@ -1,4 +1,4 @@
-# Zorra test
+# Backend Favvert App
 <h2>Необходимо установить docker и docker-compose</h2>
 <h3>Проверка версий </h2>
 - <code>docker -v</code><br>
@@ -12,13 +12,12 @@
 - <code>cp .env.example .env</code><br>
 - <code>docker-compose build --build-arg USER_ID="$(id -u)" --build-arg USER="$(whoami)"</code><br>
 - <code>docker-compose up -d</code><br>
-- <code>sudo -- sh -c -e "echo 127.0.0.1 zorra.test >> /etc/hosts"</code><br>
 - <code>docker-compose exec app php artisan key:generate</code><br>
 - <code>docker-compose exec app composer install</code><br>
 - <code>docker-compose exec app php artisan migrate</code><br>
 - <code>docker-compose exec app php artisan jwt:secret</code><br><br>
 
-После выполнения команд проект будет доступен локально http://zorra.test/
+После выполнения команд проект будет доступен локально http://localhost:8090
 
 <h2>Описание API</h2>
 <details>
