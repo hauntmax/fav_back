@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\AbstractModels\AbstractBaseModel;
+use App\Models\AbstractModels\SlaveableModel;
 
 /**
  * @property int $Id
@@ -11,8 +12,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Model
  * @property string $Brand
  */
-class Car extends Model
+class Car extends AbstractBaseModel
 {
+    use SlaveableModel;
+
     protected $table = 'Car';
     protected $guarded = [];
 }
