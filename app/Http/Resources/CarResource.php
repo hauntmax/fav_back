@@ -4,20 +4,18 @@ namespace App\Http\Resources;
 
 use App\Models\Car;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Arr;
 
-/**
- * @property Car $resource
- */
 class CarResource extends JsonResource
 {
     public function toArray($request): array
     {
         return [
-            'Id' => $this->resource->getKey(),
-            'RegNumber' => $this->resource->RegNumber,
-            'Vin' => $this->resource->VIN,
-            'Model' => $this->resource->Model,
-            'Brand' => $this->resource->Brand,
+            'Id' => Arr::get($this->resource, 'Id'),
+            'RegNumber' => Arr::get($this->resource, 'RegNumber'),
+            'VIN' => Arr::get($this->resource, 'VIN'),
+            'Model' => Arr::get($this->resource, 'Model'),
+            'Brand' => Arr::get($this->resource, 'Brand'),
         ];
     }
 }

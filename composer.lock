@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "33d8462ca88fd58b88461c6ae1b3e1bd",
+    "content-hash": "cc2c64b578067e15642d0cd59f26bd19",
     "packages": [
         {
             "name": "brick/math",
@@ -60,6 +60,41 @@
                 }
             ],
             "time": "2023-01-15T23:15:59+00:00"
+        },
+        {
+            "name": "cp/filter",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hauntmax/fav_filter.git",
+                "reference": "68501b08cb8b5c14b8f9c65f21b22b57b7f8f170"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hauntmax/fav_filter/zipball/68501b08cb8b5c14b8f9c65f21b22b57b7f8f170",
+                "reference": "68501b08cb8b5c14b8f9c65f21b22b57b7f8f170",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": ">=1.18",
+                "php": ">=7.4.0"
+            },
+            "require-dev": {
+                "phake/phake": "^3.0",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CP\\Filter\\": "src/"
+                }
+            },
+            "description": "Citypoint Filter for APIs.",
+            "support": {
+                "source": "https://github.com/hauntmax/fav_filter/tree/v1.0.1",
+                "issues": "https://github.com/hauntmax/fav_filter/issues"
+            },
+            "time": "2024-09-22T15:44:30+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -8647,7 +8682,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0.2"
+        "php": "^8.2"
     },
     "platform-dev": [],
     "plugin-api-version": "2.6.0"

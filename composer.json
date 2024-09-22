@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "cp/filter": "1.0.1",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
@@ -63,5 +64,11 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories" : {
+        "cp/filter": {
+            "type": "vcs",
+            "url": "git@github.com:hauntmax/fav_filter.git"
+        }
+    }
 }

@@ -16,6 +16,6 @@ class CarController extends Controller
 
     public function index(Request $request): CarResourceCollection
     {
-        return CarResourceCollection::make($this->carService->getAll());
+        return CarResourceCollection::make($this->carService->getAll($request->get('filters') ?? []));
     }
 }
