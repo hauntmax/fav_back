@@ -11,11 +11,11 @@ class CarResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'Id' => Arr::get($this->resource, 'Id'),
-            'RegNumber' => Arr::get($this->resource, 'RegNumber'),
-            'VIN' => Arr::get($this->resource, 'VIN'),
-            'Model' => Arr::get($this->resource, 'Model'),
-            'Brand' => Arr::get($this->resource, 'Brand'),
+            'Id' => $this->resource->getKey(),
+            'RegNumber' => $this->resource->RegNumber,
+            'Vin' => $this->resource->VIN,
+            'Model' => $this->resource->Model,
+            'Brand' => $this->resource->Brand,
         ];
     }
 }

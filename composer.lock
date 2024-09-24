@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "053345cfeead7ed6900295267e7c682e",
+    "content-hash": "1c35668dcb95821657bfbaf75ba5dcd5",
     "packages": [
         {
             "name": "brick/math",
@@ -63,16 +63,16 @@
         },
         {
             "name": "cp/filter",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hauntmax/fav_filter.git",
-                "reference": "433408e1192d93fb05496a4983c421e0a3925caf"
+                "reference": "082114016bd629e73fc57deeec775f35d5d5d957"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hauntmax/fav_filter/zipball/433408e1192d93fb05496a4983c421e0a3925caf",
-                "reference": "433408e1192d93fb05496a4983c421e0a3925caf",
+                "url": "https://api.github.com/repos/hauntmax/fav_filter/zipball/082114016bd629e73fc57deeec775f35d5d5d957",
+                "reference": "082114016bd629e73fc57deeec775f35d5d5d957",
                 "shasum": ""
             },
             "require": {
@@ -91,10 +91,10 @@
             },
             "description": "Citypoint Filter for APIs.",
             "support": {
-                "source": "https://github.com/hauntmax/fav_filter/tree/v1.0.2",
+                "source": "https://github.com/hauntmax/fav_filter/tree/v1.0.3",
                 "issues": "https://github.com/hauntmax/fav_filter/issues"
             },
-            "time": "2024-09-23T01:14:12+00:00"
+            "time": "2024-09-24T11:50:35+00:00"
         },
         {
             "name": "dflydev/dot-access-data",

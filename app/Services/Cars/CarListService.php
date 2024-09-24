@@ -11,17 +11,19 @@ class CarListService
 {
     public function getAll(array $filters = []): AbstractEntity
     {
-        $cars = Car::query()->get()->toArray();
-        $cp_filter = new Filter();
+        $cars = Car::query()->get();
+
         foreach ($filters['like'] ?? [] as $fieldName => $fieldValue) {
+            $cp_filter = new Filter();
             $ast = $cp_filter->getAst("like($fieldName, \"$fieldValue\")");
-            $cars = $ast->apply($cars);
+            $cars = $cars->filter(function ($car) use ($ast, $fieldName, $fieldValue) {
+                return $ast->apply([$fieldName => $car->$fieldName]);
+            });
         }
-        $cars_count = count($cars);
 
         return CarListEntity::fromArray([
             'data' => $cars,
-            'total_count' => $cars_count,
+            'total_count' => $cars->count(),
         ]);
     }
 }
