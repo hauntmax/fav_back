@@ -14,8 +14,8 @@ services:
         volumes:
             - ${PROJECT_PATH}:/srv/app
             - ${PROJECT_PATH}/docker-local/nginx/nginx.conf.template:/etc/nginx/conf.d/default.conf
-            - ${PROJECT_PATH}/docker-local/nginx/certs/app.favvertgroup.ru.crt:/etc/nginx/app.favvertgroup.ru.crt
-            - ${PROJECT_PATH}/docker-local/nginx/certs/app.favvertgroup.ru.key:/etc/nginx/app.favvertgroup.ru.key
+            - ${PROJECT_PATH}/docker-local/nginx/certs/favvertgroup.ru.crt:/etc/nginx/favvertgroup.ru.crt
+            - ${PROJECT_PATH}/docker-local/nginx/certs/favvertgroup.ru.key:/etc/nginx/favvertgroup.ru.key
         depends_on:
             - fav-app
             - fav-mysql

@@ -7,8 +7,8 @@ server {
    listen      80 default_server;
    listen      443 ssl;
    server_name _;
-   ssl_certificate app.favvertgroup.ru.crt;
-   ssl_certificate_key app.favvertgroup.ru.key;
+   ssl_certificate favvertgroup.ru.crt;
+   ssl_certificate_key favvertgroup.ru.key;
    root        /srv/app/public;
 
    index       index.php;
