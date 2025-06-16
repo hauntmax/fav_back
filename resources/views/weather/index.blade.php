@@ -23,7 +23,7 @@
         const timeResponse = await fetch(timeApiUrl);
         const timeData = await timeResponse.json();
 
-        document.getElementById('time').textContent = new Date(timeData.formatted).toLocaleTimeString();
+        document.getElementById('time').textContent = timeData.formatted;
         document.getElementById('weather').textContent = `${weatherData.main.temp}°C`;
       } catch (error) {
         console.error('Ошибка при получении данных:', error);
