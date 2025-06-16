@@ -5,8 +5,8 @@
 <title>Виджет погоды и времени</title>
 <style>
   body { font-family: sans-serif; color: black; text-align: center; }
-  #time { font-size: 4em; }
-  #weather { font-size: 2em; }
+  #time { font-size: 3em; }
+  #weather { font-size: 3em; }
 </style>
 </head>
 <body>
