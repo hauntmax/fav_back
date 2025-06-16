@@ -16,6 +16,10 @@ use App\Http\Controllers\User\HomeController as UserHomeController;
 |
 */
 
+Route::get('weather', function () {
+    Route::get('', [\App\Http\Controllers\WeatherController::class, 'get']);
+});
+
 Route::group(['prefix' => 'auth', 'as' => 'auth.'], function  () {
     Route::get('login', [AuthController::class, 'loginPage'])->name('login.page');
     Route::post('register', [AuthController::class, 'register'])->name('register');
