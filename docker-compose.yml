@@ -23,8 +23,8 @@ services:
             - fav-app
         restart: unless-stopped
         ports:
-            - "8090:80"
-            - "8091:443"
+            - "80:80"
+            - "443:443"
         networks:
             default:
 
