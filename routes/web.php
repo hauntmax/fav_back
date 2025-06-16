@@ -16,7 +16,8 @@ use App\Http\Controllers\User\HomeController as UserHomeController;
 |
 */
 
-Route::get('weather', [\App\Http\Controllers\WeatherController::class, 'get']);
+Route::get('weather', [\App\Http\Controllers\WeatherController::class, 'weather'])->name('weather');
+Route::get('datetime', [\App\Http\Controllers\WeatherController::class, 'datetime'])->name('datetime');
 
 Route::group(['prefix' => 'auth', 'as' => 'auth.'], function  () {
     Route::get('login', [AuthController::class, 'loginPage'])->name('login.page');
