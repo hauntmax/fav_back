@@ -5,10 +5,10 @@ map $http_upgrade $connection_upgrade {
 
 server {
    listen      80 default_server;
-   #listen      443 ssl;
+   listen      443 ssl;
    server_name _;
-   #ssl_certificate favvertgroup.ru.crt;
-   #ssl_certificate_key favvertgroup.ru.key;
+   ssl_certificate favvertgroup.ru.crt;
+   ssl_certificate_key favvertgroup.ru.key;
    root        /srv/app/public;
 
    index       index.php;
